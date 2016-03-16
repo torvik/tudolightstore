@@ -21,6 +21,7 @@ class StocksController < ApplicationController
 
   # GET /stocks/1/edit
   def edit
+    @products = Product.all
   end
 
   # POST /stocks
@@ -42,6 +43,7 @@ class StocksController < ApplicationController
   # PATCH/PUT /stocks/1
   # PATCH/PUT /stocks/1.json
   def update
+    @products = Product.all
     respond_to do |format|
       if @stock.update(stock_params)
         format.html { redirect_to @stock, notice: 'Stock was successfully updated.' }
@@ -56,6 +58,7 @@ class StocksController < ApplicationController
   # DELETE /stocks/1
   # DELETE /stocks/1.json
   def destroy
+    @products = Product.all
     @stock.destroy
     respond_to do |format|
       format.html { redirect_to stocks_url, notice: 'Stock was successfully destroyed.' }

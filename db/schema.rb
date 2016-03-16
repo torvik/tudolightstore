@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20160316031020) do
 
   create_table "stocks", force: :cascade do |t|
     t.integer  "products_id"
-    t.integer  "quantity"
+    t.integer  "quantity",    default: 1
     t.boolean  "active"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "stocks", ["products_id"], name: "index_stocks_on_products_id"
