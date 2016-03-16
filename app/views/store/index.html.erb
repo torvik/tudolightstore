@@ -2,18 +2,20 @@
 <p id="notice"><%= notice %></p> <% end %>
 <h1>Tudo Light - Cardápio</h1>
     <% @products.each do |product| %>
-        <div class="entry">
-<h3><%= product.name %></h3> <%=sanitize product.description %>
-<h4>Quantidade no Estoque: <b><% stock = Stock.find_by_id(product.id) %><%= stock.quantity %></b></h4>
-
+<div class="entry">
+<h3>Número: <%= product.number %> </h3>
+<b>Nome:</b> <%= product.name %>
+<b>Descrição:</b> <%=sanitize product.description %>
+<h4>Quantidade no Estoque: <b><% stock = Stock.find_by_id(product.id) %>
+<% if stock.quantity == 0 %> 0 </b>
+<h4 style="color: red;"><em>Produto indisponível - Favor verificar o estoque. </em> </h4>
+<% else %>
+<%= stock.quantity %></b></h4>
 <h4>Preço: <b><%= number_to_currency(product.price) %></b></h4>
 <br>
-<% if stock.quantity == 0 %>
-<h4><em>Produto indisponível - Favor verificar o estoque. </em> </h4>
-<% else %>
+
 <%= button_to 'Incluir Produto no Pedido', line_items_path(:product_id => product),:remote => true %>
 <% end %>
 </div>
 <hr>
 <% end %>
-

@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.paginate(:page => params[:page], :per_page => 30).order('id DESC')
+    @orders = Order.paginate(:page => params[:page], :per_page => 10).order('id DESC')
 
 
     respond_to do |format|
