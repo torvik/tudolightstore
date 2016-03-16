@@ -4,7 +4,7 @@
     <% @products.each do |product| %>
         <div class="entry">
 <h3><%= product.name %></h3> <%=sanitize product.description %>
-<h4>Quantidade no Estoque: <b><% stock = Stock.find_by_id(product.id) %><%= stock.quantity %></b></h4>
+
 
 <h4>Preço: <b><%= number_to_currency(product.price) %></b></h4>
 <br>
