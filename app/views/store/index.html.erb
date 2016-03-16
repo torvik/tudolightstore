@@ -1,0 +1,11 @@
+<% if notice %>
+<p id="notice"><%= notice %></p> <% end %>
+<h1>Tudo Light - Cardápio</h1>
+      <% @products.each do |product| %>
+        <div class="entry">
+<h3><%= product.name %></h3> <%=sanitize product.description %> <div class="price_line">
+<span class="price"><%= product.price %></span> </div>
+<%= button_to 'Incluir Produto no Pedido', line_items_path(:product_id => product),:remote => true %>
+</div>
+<% end %>
+<hr>

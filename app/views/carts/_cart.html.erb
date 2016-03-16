@@ -1,0 +1,15 @@
+<% unless cart.line_items.empty? %>
+<hr>
+<h2>Seu Pedido</h2>
+<table>
+  <%= render(cart.line_items) %>
+<tr class="total_line">
+<td colspan="2">Total</td>
+<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+  </tr>
+</table>
+<hr>
+<%= link_to('Criar Pedido', new_order_url, :method=>:get, class: 'btn btn-primary', title: 'Criar Pedido') %>
+<%= link_to("Limpar Pedido", cart, :method => :delete, class: 'btn btn-xs btn-danger', :confirm => 'Are you sure?') %>
+
+<% end %>
