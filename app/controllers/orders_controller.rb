@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     if current_cart.line_items.empty?
-     redirect_to store_url, :notice => "Your cart is empty"
+     redirect_to store_index_path, :notice => "Your cart is empty"
      return
     end
 
@@ -49,9 +49,20 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+
+        #pesquisar os itens da ordem e salvar a quantidade no estoque
+        order = @order
+        @line_items = LineItem.where("line_items.order_id= ?", order.id)
+        @line_items.each do |line_items|
+          @stock = Stock.find_by_id(line_items.product_id)
+          @stock.quantity -= line_items.quantity
+          @stock.save
+         end
+
+
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        format.html { redirect_to(store_url, :notice => 'Thank you for your order.') }
+        format.html { redirect_to(store_index_path, :notice => 'Thank you for your order.') }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }

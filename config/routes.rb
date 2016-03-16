@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :stocks
   get 'welcome/index'
 
   #get 'admin/index'

@@ -53,6 +53,8 @@
           <% if user_signed_in? %>
             <li><%= link_to "Pedidos", orders_path  %></li>
             <li><%= link_to "Produtos", products_path  %></li>
+            <li><%= link_to "Estoque", stocks_path  %></li>
+
 
           <% end %>
           </ul>
@@ -74,6 +76,7 @@
               <% if user_signed_in? %>
               <li><%= link_to "Pedidos", orders_path  %></li>
               <li><%= link_to "Produtos", products_path   %></li>
+              <li><%= link_to "Estoque", stocks_path  %></li>
               <li><%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe, edit_registration_path(current_user) %></li>
               <%= link_to("Logout", destroy_user_session_path, class: 'btn btn-xs btn-danger', method: :delete) %>
               <% else %>
