@@ -78,7 +78,7 @@
               <li><%= link_to "Lista de Produtos", products_path   %></li>
               <li><%= link_to "Verificar Estoque", stocks_path  %></li>
               <li><%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe, edit_registration_path(current_user) %></li>
-              <%= link_to("Logout", destroy_user_session_path, class: 'btn btn-xs btn-danger', method: :delete) %>
+              <li><%= link_to("Logout", destroy_user_session_path, class: 'btn btn-xs btn-danger', method: :delete) %></li>
               <% else %>
               <%= link_to('Sign In', new_user_session_path, class: 'btn btn-primary', title: 'Sign In') %>
               <% end %>

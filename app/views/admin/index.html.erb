@@ -1,8 +1,110 @@
-<h1>Bem-vindo</h1>
+<!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Dashboard <small>Statistics Overview</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboard
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
 
-<br>
-<p>Temos o total de pedidos: <%= @total_orders %></p>
+                   <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= @total_orders %></div>
+                                        <div>Pedidos Atendidos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/orders">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Mais Detalhes</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-tasks fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= @totalproducts %></div>
+                                        <div>Produtos Cadastrados</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/products">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Mais Detalhes</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= @totalitens %></div>
+                                        <div>Total de Itens Vendidos!</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/orders">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Mais Detalhes</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-support fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= @totalstock %></div>
+                                        <div>Total em Estoque</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/stocks">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Mais Detalhes</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
 
-<p>Temos o total de produtos: <%= @totalproducts %></p>
 
-<p>Temos o total de Itens Vendidos: <%= @totalitens %></p>
+
+
