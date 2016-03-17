@@ -4,7 +4,5 @@ class StoreController < ApplicationController
     @cart = current_cart
     @stock = Stock.all
 
-
-
   end
 end
