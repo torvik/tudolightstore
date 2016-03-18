@@ -16,7 +16,7 @@ class StocksController < ApplicationController
   # GET /stocks/new
   def new
     @stock = Stock.new
-    @products = Product.all
+    @products = Product.all.order(id: :asc)
   end
 
   # GET /stocks/1/edit

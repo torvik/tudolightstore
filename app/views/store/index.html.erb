@@ -10,7 +10,7 @@
 <h4>Preço: <b><%= number_to_currency(product.price) %></b></h4>
 <br>
 
-<%= button_to 'Incluir Produto no Pedido', line_items_path(:product_id => product),:remote => true %>
+<%= button_to 'Incluir Produto no Pedido', line_items_path(:product_id => product),:remote => true, :class => 'btn btn-primary' %>
 
 </div>
 <hr>
