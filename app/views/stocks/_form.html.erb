@@ -18,7 +18,7 @@
   <div class="form-group">
     <%= f.label :products_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.select :products_id, @products.collect {|product| [ product.name, product.id ] } , :class => 'form-control' %>
+      <%= f.select :products_id, @products.collect {|product| [ "N°: #{product.number} | #{product.name}", product.id ] } , :class => 'form-control' %>
     </div>
     <%=f.error_span(:products_id) %>
   </div>
