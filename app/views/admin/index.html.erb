@@ -2,11 +2,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
+                            Dashboard <small>Statistics Overview  </small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
+                                <i class="fa fa-dashboard"></i> Dados Gerais
                             </li>
                         </ol>
                     </div>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-green">
+                        <div class="panel panel-success">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
@@ -59,15 +59,15 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow">
+                        <div class="panel panel-info">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-shopping-cart fa-5x"></i>
+                                        <i class="fa fa-bar-chart fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge"><%= @totalitens %></div>
-                                        <div>Total de Itens Vendidos!</div>
+                                        <div>Total de Itens Vendidos</div>
                                     </div>
                                 </div>
                             </div>
@@ -81,11 +81,11 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
+                        <div class="panel panel-warning">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-support fa-5x"></i>
+                                        <i class="fa fa-database fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge"><%= @totalstock %></div>
@@ -105,6 +105,168 @@
                 </div>
                 <!-- /.row -->
 
+                   <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Valores Gerais
+                            </li>
+                        </ol>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-money fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= number_to_currency(@totalvendido) %></div>
+                                        <div>Total das Vendas</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/orders">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Mais Detalhes</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-bars fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= number_to_currency(@valormediovenda) %></div>
+                                        <div>Valor Médio de Vendas</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/orders">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Mais Detalhes</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa  fa-arrow-circle-up fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= number_to_currency(@maiorvenda) %></div>
+                                        <div>Maior Venda</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/orders">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Mais Detalhes</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-down fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= number_to_currency(@menorvenda) %></div>
+                                        <div>Menor Venda</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/orders">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Mais Detalhes</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                 <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Pedidos <%= render "noti" %>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+        <%= render "recents" %>
+
+        <br>
+
+
+       <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>Relatório de Pedidos por Status </h4></div>
+                        <div class="panel-body">
+
+                            <small>Solicitadas: <%= @total_order_solicitado %> </small>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: <% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_solicitado*100/@total_orders) %>% <% end %>" >
+                                    <span class="sr-only"><% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_solicitado*100/@total_orders) %> <% end %></span>
+                                </div>
+                            </div>
+                            <small>Em Atendimento: <%= @total_order_atendimento %></small>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: <% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_atendimento*100/@total_orders) %>% <% end %>">
+                                    <span class="sr-only"><% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_atendimento*100/@total_orders) %> <% end %></span>
+                                </div>
+                            </div>
+                            <small>Em Estoque: <%= @total_order_estoque %></small>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_estoque*100/@total_orders) %>% <% end %>">
+                                    <span class="sr-only"><% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_estoque*100/@total_orders) %> <% end %></span>
+                                </div>
+                            </div>
+                            <small>Pronta Entrega: <%= @total_order_pronta_entrega %></small>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: <% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_pronta_entrega*100/@total_orders) %>% <% end %>">
+                                    <span class="sr-only"><% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_pronta_entrega*100/@total_orders) %> <% end %></span>
+                                </div>
+                            </div>
+                            <small>Entregues: <%= @total_order_entregue %></small>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: <% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_entregue*100/@total_orders) %>% <% end %>">
+                                    <span class="sr-only"><% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_entregue*100/@total_orders) %> <% end %></span>
+                                </div>
+                            </div>
+                              <small>Canceladas: <%= @total_order_cancelado %></small>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: <% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_cancelado*100/@total_orders) %>% <% end %>">
+                                    <span class="sr-only"><% if @total_orders == 0 %> 0% <% else %> <%= (@total_order_cancelado*100/@total_orders) %> <% end %></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--/panel-body-->
+                    </div>
+                    <!--/panel-->
 
 

@@ -1,7 +1,20 @@
 <%- model_class = Order -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => 'Lista de Pedidos' %></h1>
-</div>
+         <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Tudo Light  <small> <%=t '.title', :default => 'Lista de Pedidos' %>  </small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-bar-chart"></i> Todos os pedidos
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -19,8 +32,8 @@
         <td><%= link_to order.id, order_path(order) %></td>
         <td><%= order.name %></td>
         <td><%= order.delivery_date.strftime("%d/%m/%Y")  %></td>
-        <td><%= order.pay_type %></td>
-        <td><%= order.status %></td>
+        <td><span class="label label-warning"><%= order.pay_type %></span></td>
+        <td><span class="label label-info"><%= order.status %></span></td>
 
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

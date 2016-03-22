@@ -1,17 +1,28 @@
 <% if notice %>
 <p id="notice"><%= notice %></p> <% end %>
-<h1>Tudo Light - Cardápio</h1>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Tudo Light  <small> Cardápios  </small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-shopping-cart"></i> Adicione os itens ao pedido e clique em <a href="/store/index"><i class="fa fa-refresh"></i> Atualizar</a> ou F5 no seu teclado
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
     <% @products.each do |product| %>
 <div class="entry">
-<h3>Número: <%= product.number %> </h3>
-<b>Nome:</b> <%= product.name %>
-<b>Descrição:</b> <%=sanitize product.description %>
-
-<h4>Preço: <b><%= number_to_currency(product.price) %></b></h4>
-<br>
-
-<%= button_to 'Incluir Produto no Pedido', line_items_path(:product_id => product),:remote => true, :class => 'btn btn-primary' %>
-
+<h3>Número: <%= product.number %> <span class="label label-success pull-right ">Preço: <%= number_to_currency(product.price) %></span></h3>
+<p></p><b>Nome:</b> <%= product.name %></p>
+<p>
+<b>Descrição:</b> <%=sanitize product.description %></p>
+<p><%= button_to 'Incluir Produto no Pedido', line_items_path(:product_id => product),:remote => true, :class => 'btn btn-primary' %>
+</p>
 </div>
 <hr>
 <% end %>
+
+

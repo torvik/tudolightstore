@@ -1,0 +1,39 @@
+ <!-- TABLE: LATEST ORDERS -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Últimos 5 Pedidos</h3>
+                  <div class="box-tools pull-right">
+
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="table-responsive">
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th> Número Pedido </th>
+                          <th> Cliente</th>
+                          <th> Total</th>
+                           <th> Status</th>
+                           <th> Forma de Pagamento</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @orders.each do |order| %>
+                        <tr>
+                          <td><%= link_to order.id, order_path(order) %></td>
+                          <td><%= order.name %></td>
+                          <td><%= number_to_currency(order.total_price) %></td>
+                          <td><span class="label label-success"><%= order.status %></span></td>
+                          <td><%= order.pay_type %></td>
+                        </tr>
+
+                         <% end %>
+                      </tbody>
+                    </table>
+                  </div><!-- /.table-responsive -->
+                 </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  <a href="/orders/" class="btn btn-sm btn-primary btn-flat pull-right">Todos os Pedidos</a>
+                </div><!-- /.box-footer -->
+              </div><!-- /.box -->

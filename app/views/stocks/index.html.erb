@@ -1,14 +1,27 @@
 <%- model_class = Stock -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => 'Estoque' %></h1>
-</div>
+  <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Tudo Light  <small><%=t '.title', :default => 'Estoque' %>  </small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-database"></i> Todos os produtos em estoque
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
 <table class="table table-striped">
   <thead>
     <tr>
 
-      <th><%= model_class.human_attribute_name(:products_id) %></th>
-      <th><%= model_class.human_attribute_name(:quantity) %></th>
-      <th><%= model_class.human_attribute_name(:active) %></th>
+      <th><%= model_class.human_attribute_name(:Produto) %></th>
+      <th><%= model_class.human_attribute_name(:Quantidade) %></th>
+      <th><%= model_class.human_attribute_name(:Ativo) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>

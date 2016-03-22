@@ -18,6 +18,8 @@
   <dd><%= @order.pay_type %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= @order.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:valor_total) %>:</strong></dt>
+  <dd><%= number_to_currency(@order.total_price) %></dd>
 </dl>
 
 <hr>

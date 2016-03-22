@@ -50,10 +50,10 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-            <li><%= link_to "Dashboard", admin_path  %></li>
-            <li><%= link_to "Lista de Pedidos", orders_path  %></li>
-            <li><%= link_to "Lista de Produtos", products_path  %></li>
-            <li><%= link_to "Verificar Estoque", stocks_path  %></li>
+            <li><%= link_to ('<i class="fa fa-dashboard"></i>' " Dashboard").html_safe, admin_path  %></li>
+            <li><%= link_to ('<i class="fa fa-bar-chart"></i>' " Lista de Pedidos").html_safe, orders_path  %></li>
+            <li><%= link_to ('<i class="fa fa-tasks"></i>' " Lista de Produtos").html_safe, products_path  %></li>
+            <li><%= link_to ('<i class="fa fa-database"></i>' " Verificar Estoque").html_safe, stocks_path  %></li>
           <% end %>
           </ul>
         </div>
@@ -67,25 +67,26 @@
           <%= yield %>
         </div>
         <div class="col-lg-3">
-          <div class="well sidebar-nav">
+         <div class="well sidebar-nav">
+            <% if @cart %>
+                <%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
+                  <%= render @cart %>
+                <% end %>
+              <% end %>
+
             <h3>Menu</h3>
             <ul class="nav nav-list">
               <li class="nav-header"></li>
               <% if user_signed_in? %>
-              <li><%= link_to "Dashboard", admin_path  %></li>
-              <li><%= link_to "Criar Pedido", store_index_path  %></li>
-              <li><%= link_to "Lista de Pedidos", orders_path  %></li>
-              <li><%= link_to "Lista de Produtos", products_path   %></li>
-              <li><%= link_to "Verificar Estoque", stocks_path  %></li>
+              <li><%= link_to ('<i class="fa fa-dashboard"></i>' " Dashboard").html_safe, admin_path  %></li>
+              <li><%= link_to ('<i class="fa fa-shopping-cart"></i>' " Criar Pedido").html_safe, store_index_path  %></li>
+              <li><%= link_to ('<i class="fa fa-bar-chart"></i>' " Lista de Pedidos").html_safe, orders_path  %></li>
+              <li><%= link_to ('<i class="fa fa-tasks"></i>' " Lista de Produtos").html_safe, products_path   %></li>
+              <li><%= link_to ('<i class="fa fa-database"></i>' " Verificar Estoque").html_safe, stocks_path  %></li>
               <li><%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe, edit_registration_path(current_user) %></li>
               <li><%= link_to("Logout", destroy_user_session_path, class: 'btn btn-xs btn-danger', method: :delete) %></li>
               <% else %>
               <%= link_to('Sign In', new_user_session_path, class: 'btn btn-primary', title: 'Sign In') %>
-              <% end %>
-              <% if @cart %>
-                <%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
-                  <%= render @cart %>
-                <% end %>
               <% end %>
 
 
@@ -95,7 +96,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2016</p>
+        <p>Desenvolvido por <a href="http://www.breadbox.com.br">BreadBox </a>&copy; Company 2016</p>
       </footer>
 
     </div> <!-- /container -->

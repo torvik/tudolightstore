@@ -52,12 +52,18 @@ class OrdersController < ApplicationController
 
         #pesquisar os itens da ordem e salvar a quantidade no estoque
         order = @order
+        @total_pedido = 0
+
         @line_items = LineItem.where("line_items.order_id= ?", order.id)
+
         @line_items.each do |line_items|
           @stock = Stock.find_by_id(line_items.product_id)
           @stock.quantity -= line_items.quantity
           @stock.save
+          @total_pedido += line_items.total_price
          end
+          @order.total_price = @total_pedido
+          @order.save
 
 
         Cart.destroy(session[:cart_id])
@@ -76,6 +82,21 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
+        #pesquisar os itens da ordem e salvar a quantidade no estoque
+        order = @order
+        @total_pedido = 0
+
+        @line_items = LineItem.where("line_items.order_id= ?", order.id)
+
+        @line_items.each do |line_items|
+          #@stock = Stock.find_by_id(line_items.product_id)
+          #@stock.quantity -= line_items.quantity
+          #@stock.save
+          @total_pedido += line_items.total_price
+         end
+          @order.total_price = @total_pedido
+          @order.save
+
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -103,6 +124,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :phone, :email, :address, :delivery_date, :pay_type, :status)
+      params.require(:order).permit(:name, :phone, :email, :address, :delivery_date, :pay_type, :status, :total_price)
     end
 end
