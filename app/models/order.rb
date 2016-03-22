@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
   has_many :line_items, :dependent => :destroy
 
 
-  PAYMENT_TYPES = [ "Dinheiro" , "Débito" , "Crédito", "Vale", "Transferencia" ]
+  PAYMENT_TYPES = [ "Dinheiro" , "Débito" , "Crédito", "Vale", "Transferência" ]
   STATUS = [ "Solicitado", "Em atendimento", "Em estoque", "Pronto para entrega", "Entregue", "Cancelado" ]
 
   validates :name, :address, :phone, :email, :pay_type, :presence => true
