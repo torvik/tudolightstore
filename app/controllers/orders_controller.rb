@@ -5,8 +5,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.paginate(:page => params[:page], :per_page => 10).order('id DESC')
-
-
+    @customers = Customer.all
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @orders }
@@ -18,11 +17,13 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @line_item = LineItem.all
+    @customers = Customer.all
 
   end
 
   # GET /orders/new
   def new
+    @customers = Customer.all.order(name: :asc)
     if current_cart.line_items.empty?
      redirect_to store_index_path, :notice => "Your cart is empty"
      return
@@ -39,6 +40,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @customers = Customer.all
   end
 
   # POST /orders
@@ -124,6 +126,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :phone, :email, :address, :delivery_date, :pay_type, :status, :total_price)
+      params.require(:order).permit( :delivery_date, :pay_type, :status, :total_price, :customer_id)
     end
 end

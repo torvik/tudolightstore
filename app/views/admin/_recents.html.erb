@@ -11,9 +11,9 @@
                     <table class="table no-margin">
                       <thead>
                         <tr>
-                          <th> Número Pedido </th>
-                          <th> Cliente</th>
-                          <th> Total</th>
+                          <th>  Número Pedido </th>
+                          <th>  Cliente </th>
+                           <th> Total</th>
                            <th> Status</th>
                            <th> Forma de Pagamento</th>
                         </tr>
@@ -22,7 +22,7 @@
                         <% @orders.each do |order| %>
                         <tr>
                           <td><%= link_to order.id, order_path(order) %></td>
-                          <td><%= order.name %></td>
+                          <td><%=  order.customer.name %></td>
                           <td><%= number_to_currency(order.total_price) %></td>
                           <td><span class="label label-success"><%= order.status %></span></td>
                           <td><%= order.pay_type %></td>

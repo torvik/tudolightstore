@@ -51,6 +51,7 @@
           <ul class="nav navbar-nav">
           <% if user_signed_in? %>
             <li><%= link_to ('<i class="fa fa-dashboard"></i>' " Dashboard").html_safe, admin_path  %></li>
+            <li><%= link_to ('<i class="fa fa-user"></i>' " Lista de Clientes").html_safe, customers_path  %></li>
             <li><%= link_to ('<i class="fa fa-bar-chart"></i>' " Lista de Pedidos").html_safe, orders_path  %></li>
             <li><%= link_to ('<i class="fa fa-tasks"></i>' " Lista de Produtos").html_safe, products_path  %></li>
             <li><%= link_to ('<i class="fa fa-database"></i>' " Verificar Estoque").html_safe, stocks_path  %></li>
@@ -80,6 +81,7 @@
               <% if user_signed_in? %>
               <li><%= link_to ('<i class="fa fa-dashboard"></i>' " Dashboard").html_safe, admin_path  %></li>
               <li><%= link_to ('<i class="fa fa-shopping-cart"></i>' " Criar Pedido").html_safe, store_index_path  %></li>
+              <li><%= link_to ('<i class="fa fa-user"></i>' " Cadastrar Cliente").html_safe, new_customer_path  %></li>
               <li><%= link_to ('<i class="fa fa-bar-chart"></i>' " Lista de Pedidos").html_safe, orders_path  %></li>
               <li><%= link_to ('<i class="fa fa-tasks"></i>' " Lista de Produtos").html_safe, products_path   %></li>
               <li><%= link_to ('<i class="fa fa-database"></i>' " Verificar Estoque").html_safe, stocks_path  %></li>

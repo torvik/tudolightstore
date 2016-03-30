@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :customers
   resources :stocks
   get 'welcome/index'
 

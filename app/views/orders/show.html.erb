@@ -4,14 +4,14 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
-  <dd><%= @order.name %></dd>
+   <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
+  <dd><%= number_to_phone(@order.customer.name) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:telefone) %>:</strong></dt>
-  <dd><%= number_to_phone(@order.phone) %></dd>
+  <dd><%= number_to_phone(@order.customer.phone) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @order.email %></dd>
+  <dd><%= @order.customer.email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:endereço) %>:</strong></dt>
-  <dd><%= @order.address %></dd>
+  <dd><%= @order.customer.address %></dd>
   <dt><strong><%= model_class.human_attribute_name(:data_entrega) %>:</strong></dt>
   <dd><%= @order.delivery_date.strftime("%d/%m/%Y") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:Forma_de_pg) %>:</strong></dt>

@@ -1,0 +1,50 @@
+<%- model_class = Customer -%>
+ <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Tudo Light  <small> <%=t '.title', :default => 'Nossos Clientes' %>  </small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-user"></i> Lista dos Clientes cadastrados
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:telefone) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:endereço) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+
+        <td><%= link_to customer.name , customer_path(customer) %></td>
+        <td><%= number_to_phone(customer.phone)%></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.address %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_customer_path(customer), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      customer_path(customer),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_customer_path,
+            :class => 'btn btn-primary' %>

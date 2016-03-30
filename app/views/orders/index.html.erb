@@ -19,7 +19,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:número_pedido) %></th>
-      <th><%= model_class.human_attribute_name(:cliente) %></th>
+       <th><%= model_class.human_attribute_name(:cliente) %></th>
       <th><%= model_class.human_attribute_name(:data_entrega) %></th>
       <th><%= model_class.human_attribute_name(:Forma_de_pagamento) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
@@ -30,7 +30,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= link_to order.id, order_path(order) %></td>
-        <td><%= order.name %></td>
+        <td><%= order.customer.name %></td>
         <td><%= order.delivery_date.strftime("%d/%m/%Y")  %></td>
         <td><span class="label label-warning"><%= order.pay_type %></span></td>
         <td><span class="label label-info"><%= order.status %></span></td>
