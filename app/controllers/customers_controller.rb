@@ -10,6 +10,12 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @customer = Customer.find(params[:id])
+    @orders = Order.order("created_at DESC")
+    @total_pedidos_cliente = Order.where(customer_id: @customer.id).count
+    @maiorcompra = Order.where(customer_id: @customer.id).maximum(:total_price)
+    @menorcompra = Order.where(customer_id: @customer.id).minimum(:total_price)
+
   end
 
   # GET /customers/new

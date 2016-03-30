@@ -1,6 +1,6 @@
 <%- model_class = Customer -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%=t '.title', :default => "Dados do cliente" %></h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -13,6 +13,134 @@
   <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
   <dd><%= @customer.address %></dd>
 </dl>
+
+<!-- TABLE: LATEST ORDERS -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Pedidos do Cliente</h3>
+                  <hr>
+                  <div class="box-tools pull-right">
+
+
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="table-responsive">
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                           <th>  Número Pedido </th>
+                           <th>  Cliente </th>
+                           <th> Total</th>
+                           <th> Status</th>
+                           <th> Forma de Pagamento</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <% total_gasto = 0 %>
+                        <% @orders.each do |order| %>
+                         <% if order.customer_id == @customer.id %>
+                            <tr>
+                              <td><%= link_to order.id, order_path(order) %></td>
+                              <td><%=  order.customer.name %></td>
+                              <td><%= number_to_currency(order.total_price) %></td>
+                              <td><span class="label label-success"><%= order.status %></span></td>
+                              <td><%= order.pay_type %></td>
+                              <% total_gasto += order.total_price %>
+                            </tr>
+                          <% end %>
+                         <% end %>
+
+                      </tbody>
+                    </table>
+                  </div><!-- /.table-responsive -->
+                 </div><!-- /.box-body -->
+
+              </div><!-- /.box -->
+
+
+<div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Informações Adicionais
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-user fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= number_to_currency(total_gasto) %></div>
+                                        <div>Total Gasto pelo Cliente</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-bars fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= @total_pedidos_cliente %></div>
+                                        <div>Total de Pedidos</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa  fa-arrow-circle-up fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%=   number_to_currency(@maiorcompra) %></div>
+                                        <div>Maior Compra</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-down fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%= number_to_currency(@menorcompra) %></div>
+                                        <div>Menor Compra</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
+
+<hr>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               customers_path, :class => 'btn btn-default'  %>
