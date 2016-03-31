@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
         @line_items = LineItem.where("line_items.order_id= ?", order.id)
 
         @line_items.each do |line_items|
-          @stock = Stock.find_by_id(line_items.product_id)
+          @stock = Stock.find_by_products_id(line_items.product_id)
           @stock.quantity -= line_items.quantity
           @stock.save
           @total_pedido += line_items.total_price
