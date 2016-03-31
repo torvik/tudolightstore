@@ -111,7 +111,18 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
+
+    #pesquisar os itens da ordem e salvar a quantidade no estoque
+      order = @order
+      @line_items = LineItem.where("line_items.order_id= ?", order.id)
+
+      @line_items.each do |line_items|
+        @stock = Stock.find_by_products_id(line_items.product_id)
+        @stock.quantity += line_items.quantity
+        @stock.save
+       end
     @order.destroy
+
     respond_to do |format|
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
