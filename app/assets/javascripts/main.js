@@ -8,6 +8,7 @@ jQuery(window).load(function(){
 
 });
 
+
 /* ========================================================================= */
 /*  Welcome Section Slider
 /* ========================================================================= */
@@ -79,8 +80,6 @@ $(function() {
 
 });
 
-
-
 $(document).ready(function(){
 
 	/* ========================================================================= */
@@ -124,8 +123,6 @@ $(document).ready(function(){
     $(window).resize(function(){'use strict',
         $('#home-slider, #slider, .sl-slider, .sl-content-wrapper').css('height',slideHeight);
     });
-
-
 
 	$("#works, #testimonial").owlCarousel({
 		navigation : true,

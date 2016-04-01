@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   PAYMENT_TYPES = [ "Dinheiro" , "Débito" , "Crédito", "Vale", "Transferência" ]
   STATUS = [ "Solicitado", "Em atendimento", "Em estoque", "Pronto para entrega", "Entregue", "Cancelado" ]
 
-  validates :pay_type, :presence => true
+  validates :delivery_date, :pay_type, :presence => true
   validates :pay_type, :inclusion => PAYMENT_TYPES
   validates :status, :inclusion => STATUS
 

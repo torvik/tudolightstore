@@ -1,4 +1,5 @@
 class AdminController < ApplicationController
+  layout "dashboard"
   before_action :authenticate_user!
 
   def index
@@ -29,6 +30,10 @@ class AdminController < ApplicationController
       @customer_id = order.customer_id
       @customer_menor_venda = Customer.where(id: @customer_id)
      end
+
+
+
+
 
      #@customer_mais_pedidos_id = Customer.select(' count(orders.id) AS orders_count').joins(:orders).group('orders.customer_id').order('orders_count DESC')
      #@customer_mais_pedidos = Customer.where(id: @customer_mais_pedidos_id)
