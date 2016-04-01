@@ -32,8 +32,9 @@ class AdminController < ApplicationController
      end
 
 
+     #@posts_per_user_count = Post.joins(:user).group(:user).order('count_all DESC').limit(10).count
 
-
+     @orders_per_customer_count = Order.joins(:customer).group(:customer).order('count_all DESC').limit(10).count
 
      #@customer_mais_pedidos_id = Customer.select(' count(orders.id) AS orders_count').joins(:orders).group('orders.customer_id').order('orders_count DESC')
      #@customer_mais_pedidos = Customer.where(id: @customer_mais_pedidos_id)

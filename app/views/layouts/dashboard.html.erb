@@ -103,20 +103,9 @@
             <ul class="nav nav-list">
               <li class="nav-header"></li>
 
-                    <% @top_10_customer = Customer.all %>
-                      <% total_top = 0 %>
-                      <%  @top_10_customer.each do |top_10_customer| %>
-                          <% total_top = total_top + 1 %>
-                          <% if total_top <= 10 %>
-                          <div class="huge"><%= top_10_customer.name %></div>
-                          <% @top_10_customer_count = Order.where(customer_id: top_10_customer.id).count %>
-                          <div class="huge"><%= @top_10_customer_count %></div>
-                          <% end %>
-                      <% end %>
-
-
-
-
+                <% @orders_per_customer_count.each do |item| %>
+                    <%= item[0].name %>: <%= item[1] %><br>
+                <% end %>
 
 
 
