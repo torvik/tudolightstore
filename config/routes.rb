@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   #get 'admin/index'
   get 'admin' => 'admin#index'
 
+  #get 'users/sign_in', :as => 'loginsite'
+  devise_scope :user do
+    get "/loginsistema" => "devise/sessions#new"
+  end
 
   devise_for :users
   resources :orders
