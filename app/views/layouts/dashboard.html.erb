@@ -99,12 +99,13 @@
         <div class="col-lg-3">
          <div class="well sidebar-nav">
 
-            <h3>Top 10 - Clientes</h3>
+            <h3>Top 10 <h6><em>Clientes e Total de compras</em></h6></h3>
+            <hr>
             <ul class="nav nav-list">
               <li class="nav-header"></li>
 
                 <% @orders_per_customer_count.each do |item| %>
-                    <%= item[0].name %>: <%= item[1] %><br>
+                    <%= link_to ('<i class="fa fa-user"></i> ' + (item[0].name)).html_safe, customer_path(item[0].id ) %>: <%= item[1] %><br>
                 <% end %>
 
 
