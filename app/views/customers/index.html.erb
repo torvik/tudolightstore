@@ -19,7 +19,6 @@
       <th><%= model_class.human_attribute_name(:nome) %></th>
       <th><%= model_class.human_attribute_name(:telefone) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:endereço) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -30,7 +29,6 @@
         <td><%= link_to customer.name , customer_path(customer) %></td>
         <td><%= number_to_phone(customer.phone)%></td>
         <td><%= customer.email %></td>
-        <td><%= customer.address %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_customer_path(customer), :class => 'btn btn-default btn-xs' %>
