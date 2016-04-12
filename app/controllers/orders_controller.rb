@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.paginate(:page => params[:page], :per_page => 10).order('delivery_date DESC')
+    @orders = Order.paginate(:page => params[:page], :per_page => 10).order('delivery_date DESC, id DESC')
     @customers = Customer.all
     respond_to do |format|
       format.html # index.html.erb
